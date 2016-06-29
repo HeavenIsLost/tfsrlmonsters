@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Superior Death Minion" nameDescription="a superior death minion" race="undead" experience="0" speed="300" manacost="0">
+	<health now="2500" max="2500" />
+	<look type="90" corpse="6025" />
+	<targetchange interval="2000" chance="5" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<script>
+		<event name="NecromanticMinion"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="60" poison="500"/>
+		<attack name="death" interval="2000" chance="9" range="1" target="1" min="-300" max="-1100">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="11" range="1" target="1" min="-150" max="-400">
+			<attribute key="shootEffect" value="suddendeath"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="39"/>
+	<elements>
+		<element energyPercent="25" />
+		<element holyPercent="20" />
+		<element earthPercent="-10" />
+		<element deathPercent="-10" />
+	</elements>
+</monster>

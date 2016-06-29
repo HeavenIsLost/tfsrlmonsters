@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Insectoid Scout" nameDescription="an insectoid scout" race="venom" experience="150" speed="202" manacost="0">
+<health now="230" max="230"/>
+<look type="403" corpse="13514"/>
+<targetchange interval="2000" chance="1"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="40" attack="30" poison="41"/>
+	</attacks>
+	<defenses armor="16" defense="19"/>
+	<elements>
+		<element physicalPercent="10"/>
+		<element firePercent="-10"/>
+		<element earthPercent="50"/>
+		<element energyPercent="-5"/>
+		<element icePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Klk! Klk!"/>
+		<voice sentence="Chrrr! Chrr!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="73" chance="78870" /> <!-- gold coin -->
+		<item id="7618" chance="280" /> <!-- health potion -->
+		<item id="3964" chance="850" /> <!-- ripper lance -->
+	</loot>
+</monster>

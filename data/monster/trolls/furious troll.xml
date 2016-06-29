@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Furious Troll" nameDescription="a furious troll" race="blood" experience="185" speed="180" manacost="0">
+	<health now="245" max="245"/>
+	<look type="281" corpse="7926"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="40" attack="40"/>
+	</attacks>
+	<defenses armor="9" defense="11"/>
+	<elements>
+		<element energyPercent="15"/>
+		<element holyPercent="10"/>
+		<element earthPercent="-10"/>
+		<element deathPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Slice! Slice!"/>
+		<voice sentence="DIE!!!"/>
+	</voices>
+	<summons maxSummons="2">
+		<summon name="mechanical fighter" interval="2000" chance="12"/>
+	</summons>
+	<loot>
+		<item id="10606" chance="4450"/><!-- bunch of troll hair -->
+		<item id="2148" countmax="149" chance="93690"/><!-- gold coin -->
+		<item id="2152" chance="5380"/><!-- platinum coin -->
+		<item id="2391" chance="620"/><!-- war hammer -->
+	</loot>
+</monster>

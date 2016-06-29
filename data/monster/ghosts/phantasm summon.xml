@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Phantasm" nameDescription="a phantasm" race="undead" experience="0" speed="340" manacost="0">
+	<health now="65" max="65"/>
+	<look type="241" head="20" corpse="6344"/>
+  <targetchange interval="2000" chance="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="0" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" skill="84" attack="10" />
+    <attack name="drunk" interval="2000" chance="15" duration="10000" range="7" radius="6" target="0">
+      <attribute key="areaEffect" value="redshimmer" />
+    </attack>
+    <attack name="manadrain" interval="2000" chance="12" range="7" radius="3" target="0" min="-5" max="-8">
+      <attribute key="areaEffect" value="yellowbubble" />
+    </attack>
+    <attack name="death" interval="2000" chance="7" range="7" target="1" min="-34" max="-60">
+      <attribute key="areaEffect" value="mortarea" />
+      <attribute key="shootEffect" value="suddendeath" />
+    </attack>
+    <attack name="phantasm drown" interval="2000" chance="20"/>
+  </attacks>
+  <defenses armor="25" defense="20">
+    <defense name="invisible" interval="2000" chance="15" duration="5000">
+      <attribute key="areaEffect" value="poff" />
+    </defense>
+    <defense name="healing" interval="2000" chance="20" min="22" max="44">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element icePercent="20" />
+    <element earthPercent="20" />
+    <element holyPercent="-10" />
+    <element firePercent="-10" />
+    <element energyPercent="-10" />
+  </elements>
+  <immunities>
+    <immunity physical="1" />
+    <immunity death="1" />
+    <immunity lifedrain="1" />
+    <immunity invisible="1" />
+    <immunity paralyze="1" />
+    <immunity drunk="1" />
+  </immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Oh my, you forgot to put your pants on!"/>
+		<voice sentence="Weeheeheeheehee!"/>
+		<voice sentence="Its nothing but a dream."/>
+		<voice sentence="Dream a little dream with me!"/>
+		<voice sentence="Give in."/>
+	</voices>
+	<loot>
+	</loot>
+</monster>

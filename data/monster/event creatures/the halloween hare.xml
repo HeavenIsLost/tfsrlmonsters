@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Halloween Hare" nameDescription="The Halloween Hare" race="blood" experience="0" speed="250" manacost="0">
+	<health now="2000" max="2000"/>
+	<look type="74"/>
+	<targetchange interval="2000" chance="95"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="outfit" interval="2000" radius="4" chance="2" target="1" monster="vampire" duration="6000000">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" radius="4" chance="2" target="1" monster="ghost" duration="6000000">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" radius="4" chance="2" target="1" monster="witch" duration="6000000">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" radius="4" chance="2" target="1" monster="skeleton" duration="6000000">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" radius="4" chance="2" target="1" monster="mummy" duration="6000000">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" radius="4" chance="2" target="1" item="2096" duration="6000000">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="999" defense="999"/>
+	<immunities>
+		<immunity name="physical"/>
+		<immunity name="death"/>
+		<immunity name="holy"/>
+		<immunity name="ice"/>
+		<immunity name="energy"/>
+		<immunity name="fire"/>
+		<immunity name="poison"/>
+		<immunity name="drown"/>
+		<immunity name="lifedrain"/>
+		<immunity name="paralyze"/>
+		<immunity name="drunk"/>
+		<immunity name="invisible"/>
+	</immunities>
+</monster>

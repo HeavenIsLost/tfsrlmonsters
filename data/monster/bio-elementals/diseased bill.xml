@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Diseased Bill" nameDescription="a diseased Bill" race="venom" experience="300" speed="250" manacost="0">
+	<health now="1000" max="1000"/>
+	<look type="299" corpse="8951"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="40"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="62" attack="50" poison="60"/>
+		<attack name="lifedrain" interval="2000" chance="19" range="7" min="-50" max="-140" target="1">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="8" radius="6" target="0" min="-100" max="-175">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+		<attack name="diseased paralyze" interval="2000" chance="11"/>
+	</attacks>
+	<defenses armor="19" defense="23">
+		<defense name="healing" interval="2000" chance="25" min="15" max="25">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10"/>
+		<element energyPercent="25"/>
+		<element icePercent="25"/>
+		<element holyPercent="25"/>
+		<element deathPercent="75"/>
+		<element firePercent="25"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="People like you are the plague and I'll be the cure!"/>
+		<voice sentence="You all will pay for not helping me!"/>
+		<voice sentence="Cough! Cough!"/>
+		<voice sentence="Desolate! Everything is so desolate!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="25" chance="25000"/><!-- gold coin -->
+	</loot>
+</monster>

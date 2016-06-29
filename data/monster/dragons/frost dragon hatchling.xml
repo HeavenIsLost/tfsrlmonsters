@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Frost Dragon Hatchling" nameDescription="a frost dragon hatchling" race="blood" experience="745" speed="172" manacost="0">
+	<health now="800" max="800"/>
+	<look type="283" corpse="7969"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="80"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="70" attack="40"/>
+		<attack name="ice" interval="2000" chance="12" length="8" spread="3" min="-60" max="-110">
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="15" range="7" radius="4" target="1" min="-60" max="-110">
+			<attribute key="areaEffect" value="icearea"/>
+			<attribute key="shootEffect" value="ice"/>
+		</attack>
+	</attacks>
+	<defenses armor="24" defense="31">
+		<defense name="healing" interval="2000" chance="13" min="40" max="70">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity lifedrain="1"/>
+		<immunity ice="1"/>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Rooawwrr" yell="0"/>
+		<voice sentence="Fchu?" yell="0"/>
+	</voices>
+	<loot>
+		<item id="2672" chance="7967"/><!-- dragon ham -->
+		<item id="10578" chance="4940"/><!-- frosty heart -->
+		<item id="2148" countmax="55" chance="86940"/><!-- gold coin -->
+		<item id="8900" chance="400"/><!-- spellbook of enlightenment -->
+		<item id="7618" chance="550"/><!-- health potion -->
+	</loot>
+</monster>

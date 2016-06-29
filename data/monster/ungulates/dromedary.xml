@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dromedary" nameDescription="a dromedary" race="blood" experience="0" speed="150">
+	<health now="45" max="45"/>
+	<look type="404" corpse="13528"/>
+	<targetchange interval="2000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="25"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="8"/>
+		<attack name="drunk" interval="2000" chance="5" range="7" radius="1" target="1" duration="2000">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="2" defense="2"/>
+		<voices interval="2000" chance="5">
+		<voice sentence="Snort"/>
+		<voice sentence="Grunt!"/>
+	</voices>
+	<loot>
+		<item id="13939" countmax="1" chance="120"/> <!-- sugar oat -->
+		<item id="2666" countmax="2" chance="36280"/> <!-- meat -->
+	</loot>
+</monster>

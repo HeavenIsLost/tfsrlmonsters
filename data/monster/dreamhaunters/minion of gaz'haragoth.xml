@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Minion Of Gaz'haragoth" nameDescription="a minion of Gaz'haragoth" race="energy" experience="0" speed="330" manacost="0">
+	<health now="5500" max="5500"/>
+	<look type="590" corpse="22455"/>
+	<targetchange interval="2000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="100"/>
+		<attack name="death" interval="2000" chance="18" range="7" target="1" min="-450" max="-700">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" length="10" spread="0" min="-450" max="-1000">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55">
+	</defenses>
+	<elements>
+		<element holyPercent="30"/>
+		<element energyPercent="15"/>
+		<element firePercent="-100"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

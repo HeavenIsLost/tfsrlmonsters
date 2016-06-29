@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Death Priest Shargon" nameDescription="death priest Shargon" race="undead" experience="9000" speed="320" manacost="0">
+	<health now="65000" max="65000" />
+	<look type="278" head="0" body="0" legs="0" feet="0" addons="3" corpse="6080" />
+	<targetchange interval="2000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<script>
+		<event name="ShargonGrowthCheck"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="150" attack="100" />
+		<attack name="death" interval="2000" chance="14" radius="8" target="0" min="-600" max="-900">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="holy" interval="2000" chance="18" length="8" spread="3" min="-300" max="-1000">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="25" length="10" spread="0" min="-800" max="-1400">
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+		<attack name="death priest shargon curse" interval="2000" chance="11" range="1"/>
+		<attack name="death priest shargon dazzle" interval="2000" chance="19" target="0"/>
+	</attacks>
+	<defenses armor="40" defense="60">
+		<defense name="healing" interval="2000" chance="30" min="400" max="700">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="death priest shargon summon" interval="2000" chance="20"/>
+		<defense name="death priest shargon heal" interval="2000" chance="4"/>
+	</defenses>
+	<elements>
+		<element energyPercent="25" />
+		<element holyPercent="20" />
+		<element earthPercent="-10" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity death="1"/>
+	</immunities>
+	<voices interval="2000" chance="3">
+		<voice sentence="You are hardly worth my time!" />
+	</voices>
+	<loot>
+		<item id="9969" chance="37930" /><!-- black skull -->
+		<item id="9447" chance="6900" /><!-- blood goblet -->
+		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->
+		<item id="9971" chance="20690" /><!-- gold ingot -->
+		<item id="7590" countmax="5" chance="44830" /><!-- gmp -->
+		<item id="7591" countmax="5" chance="51720" /><!-- ghp -->
+		<item id="2152" countmax="15" chance="100000" /><!-- platinum coin -->
+		<item id="2185" chance="100000" /><!-- necrotic rod -->
+	</loot>
+</monster>

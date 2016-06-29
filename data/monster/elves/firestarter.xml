@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Firestarter" nameDescription="a firestarter" race="blood" experience="80" speed="200" manacost="0">
+	<health now="180" max="180"/>
+	<look type="159" head="94" body="77" legs="78" feet="79" addons="0" corpse="20599"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="7"/>
+		<attack name="physical" interval="2000" chance="10" range="7" min="-0" max="-5">
+			<attribute key="shootEffect" value="flammingarrow"/>
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="firestarter soulfire" interval="2000" chance="11" range="7"/>
+		<attack name="firefield" interval="2000" chance="10" range="7">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+	</attacks>
+	<defenses armor="5" defense="5"/>
+	<elements>
+		<element icePercent="-20"/>
+		<element deathPercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity fire="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="FIRE!"/>
+		<voice sentence="BURN!"/>
+		<voice sentence="DEATH to the FALSE GOD!!"/>
+		<voice sentence="You shall burn in the thornfires!!"/>
+		<voice sentence="DOWN with the followers of the bog!!"/>
+		<voice sentence="Hey, what's that burnt stench... isn't that... YOU?"/>
+	</voices>
+	<loot>
+		<item id="10552" chance="5020"/><!-- elvish talisman -->
+		<item id="2681" chance="19800"/><!-- grape -->
+		<item id="13757" chance="15280"/><!-- coal -->
+		<item id="2456" chance="3860"/><!-- bow -->
+		<item id="7438" chance="100"/><!-- elvish bow -->
+		<item id="2148" countmax="35" chance="79080"/><!-- gold coin -->
+		<item id="7840" countmax="12" chance="29450"/><!-- flaming arrow -->
+		<item id="13943" chance="340"/><!-- flintstone -->
+		<item id="2397" chance="6000"/><!-- longsword -->
+		<item id="5921" chance="940"/><!-- heaven blossom -->
+	</loot>
+</monster>
