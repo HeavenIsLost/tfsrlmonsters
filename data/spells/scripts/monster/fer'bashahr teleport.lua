@@ -1,8 +1,6 @@
-local condition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
-condition:setParameter(CONDITION_PARAM_SUBID, 88888)
-condition:setParameter(CONDITION_PARAM_TICKS, 10*60*1000)
-condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
-condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 10*60*1000)
+local conditionExhaust = Condition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_HEAL_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 10*60*1000)
 
 local percentToHeal = 50
 local hidePosition = Position(1227, 775, 9)
@@ -57,10 +55,10 @@ local function sendTeleport(cid)
 end
 
 function onCastSpell(creature, var)
-	if (creature:getHealthPercent() < percentToHeal) and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
+	if (creature:getHealthPercent() < percentToHeal) and not creature:getCondition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT, DEFAULT_CONDITION_HEAL_SUB_ID) then
 		local creaturePos = creature:getPosition()
 		
-		creature:addCondition(condition)
+		creature:addCondition(conditionExhaust)
 		
 		SpellAddEvent(firstTeleport, 1, creature:getId())
 		

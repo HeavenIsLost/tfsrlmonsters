@@ -1,9 +1,7 @@
 --TO BE FIXED
-local condition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
-condition:setParameter(CONDITION_PARAM_SUBID, 88888)
-condition:setParameter(CONDITION_PARAM_TICKS, 10 * 1000)
-condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
-condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 10 * 1000)
+local conditionExhaust = Condition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_HEAL_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 10 * 1000)
 
 local function changeSpeeds(cid, var)
 	local creature = Creature(cid)
@@ -22,8 +20,8 @@ function onCastSpell(creature, var)
 	
 	local topCreature = tile:getTopCreature() 
 	
-	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
-		creature:addCondition(condition)
+	if not creature:getCondition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT, DEFAULT_CONDITION_HEAL_SUB_ID) then
+		creature:addCondition(conditionExhaust)
 		creature:teleportTo(nextPosition, true)
 		creature:changeSpeed(-speed)
 		SpellAddEvent(changeSpeeds, 11 * 1000, creature:getId(), var)

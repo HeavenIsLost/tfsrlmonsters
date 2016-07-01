@@ -1,6 +1,6 @@
-local condition = Condition(CONDITION_EXHAUST_COMBAT)
-condition:setParameter(CONDITION_PARAM_SUBID, 88888)
-condition:setParameter(CONDITION_PARAM_TICKS, 6 * 1000)
+local conditionExhaust = Condition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_HEAL_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 6 * 1000)
 
 local percentToHeal = 7
 local minHealValue = 18000
@@ -19,9 +19,9 @@ local function healLisa(cid)
 end
 
 function onCastSpell(creature, var)
-	if (creature:getHealthPercent() <= percentToHeal) and not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_COMBAT, 88888) then
+	if (creature:getHealthPercent() <= percentToHeal) and not creature:getCondition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT, DEFAULT_CONDITION_HEAL_SUB_ID) then
 		creature:say("Lisa takes a final breath before she's healing up!", TALKTYPE_ORANGE_1)
-		creature:addCondition(condition)
+		creature:addCondition(conditionExhaust)
 		SpellAddEvent(healLisa, 6 * 1000, creature:getId())
 	end
 	

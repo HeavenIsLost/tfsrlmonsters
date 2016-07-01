@@ -1,3 +1,7 @@
+local conditionExhaust = Condition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_COMBAT_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 5 * 1000)
+
 local area = createCombatArea({
 	{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
@@ -55,8 +59,11 @@ local function delayedCastSpell(cid, var)
 end
 
 function onCastSpell(creature, var)
-	creature:say("Gaz'haragoth begins to channel DEATH AND DOOM into the area! RUN!", TALKTYPE_ORANGE_2)
-	SpellAddEvent(delayedCastSpell, 5000, creature:getId(), var)
+	if not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT, DEFAULT_CONDITION_COMBAT_SUB_ID) then
+		creature:say("Gaz'haragoth begins to channel DEATH AND DOOM into the area! RUN!", TALKTYPE_ORANGE_2)
+		SpellAddEvent(delayedCastSpell, 5000, creature:getId(), var)
+		creature:addCondition(conditionExhaust)
+	end
 
 	return true
 end

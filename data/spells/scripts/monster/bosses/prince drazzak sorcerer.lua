@@ -1,6 +1,6 @@
-local condition = Condition(CONDITION_EXHAUST_COMBAT)
-condition:setParameter(CONDITION_PARAM_SUBID, 88888)
-condition:setParameter(CONDITION_PARAM_TICKS, 4 * 1000)
+local conditionExhaust = Condition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_COMBAT_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 4 * 1000)
 
 local voc = {1, 5}
 
@@ -93,8 +93,8 @@ local function selectVocTarget(boss)
 end
 
 function onCastSpell(creature, var)
-	if(not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_COMBAT, 88888)) then
-		creature:addCondition(condition)
+	if not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT, DEFAULT_CONDITION_COMBAT_SUB_ID) then
+		creature:addCondition(conditionExhaust)
 		selectVocTarget(creature)
 		creature:say("All SORCERERS must DIE!", TALKTYPE_ORANGE_1)
 		SpellAddEvent(delayedCastSpell, 4000, creature:getId(), var)

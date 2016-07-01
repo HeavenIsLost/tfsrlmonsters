@@ -1,8 +1,6 @@
-local condition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
-condition:setParameter(CONDITION_PARAM_SUBID, 88888)
-condition:setParameter(CONDITION_PARAM_TICKS, 30 * 1000)
-condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
-condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 30 * 1000)
+local conditionExhaust = Condition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_HEAL_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 30 * 1000)
 
 local healPercent = 10
 local minHeal = 7500
@@ -21,8 +19,8 @@ local function heal(cid)
 end
 
 function onCastSpell(creature, var)
-	if (creature:getHealthPercent() < healPercent) and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
-		creature:addCondition(condition)
+	if (creature:getHealthPercent() < healPercent) and not creature:getCondition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT, DEFAULT_CONDITION_HEAL_SUB_ID) then
+		creature:addCondition(conditionExhaust)
 		SpellAddEvent(heal, 10 * 1000, creature:getId())
 	end
 	

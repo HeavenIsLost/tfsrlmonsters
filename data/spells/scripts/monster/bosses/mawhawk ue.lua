@@ -1,8 +1,6 @@
-local condition = Condition(CONDITION_REGENERATION)
-condition:setParameter(CONDITION_PARAM_SUBID, 88888)
-condition:setParameter(CONDITION_PARAM_TICKS, 20 * 1000)
-condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
-condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 20 * 1000)
+local conditionExhaust = Condition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_COMBAT_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 20 * 1000)
 
 local area = createCombatArea({
 	{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
@@ -60,8 +58,8 @@ local function delayedCastSpell(cid, var)
 end
 
 function onCastSpell(creature, var)
-	if (creature:getHealthPercent() <= percentToAttack) and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_COMBAT, 88888) then
-		creature:addCondition(condition)
+	if (creature:getHealthPercent() <= percentToAttack) and not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT, DEFAULT_CONDITION_COMBAT_SUB_ID) then
+		creature:addCondition(conditionExhaust)
 		SpellAddEvent(delayedCastSpell, 5000, creature:getId(), var)
 		creature:say("Better flee now.", TALKTYPE_ORANGE_1)
 	end

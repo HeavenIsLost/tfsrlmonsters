@@ -1,3 +1,7 @@
+local conditionExhaust = Condition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_HEAL_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 14000)
+
 local function summon(cid)
 	local creature = Creature(cid)
 	if not creature then
@@ -12,6 +16,10 @@ local function summon(cid)
 end
 	
 function onCastSpell(creature, var)
-	SpellAddEvent(summon, 14000, creature:getId())
+	if not creature:getCondition(CONDITION_EXHAUST_HEAL, CONDITIONID_DEFAULT, DEFAULT_CONDITION_HEAL_SUB_ID) then
+		SpellAddEvent(summon, 14000, creature:getId())
+		creature:addCondition(conditionExhaust)
+	end
+	
 	return true
 end

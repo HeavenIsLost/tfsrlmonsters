@@ -1,11 +1,9 @@
 --TO BE FIXED
 --it seems stupid to use a different area for each direction
 
-local condition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
-condition:setParameter(CONDITION_PARAM_SUBID, 88888)
-condition:setParameter(CONDITION_PARAM_TICKS, 5 * 1000)
-condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
-condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 5 * 1000)
+local conditionExhaust = Condition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT)
+conditionExhaust:setParameter(CONDITION_PARAM_SUBID, DEFAULT_CONDITION_COMBAT_SUB_ID)
+conditionExhaust:setParameter(CONDITION_PARAM_TICKS, 5 * 1000)
 
 -----------------------------------------------------------------------------
 
@@ -119,9 +117,9 @@ local function castSpell(cid, var)
 end
 
 function onCastSpell(creature, var)
-	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
+	if not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT, DEFAULT_CONDITION_COMBAT_SUB_ID) then
 		creature:say("OMRAFIR INHALES DEEPLY!", TALKTYPE_ORANGE_2)
-		creature:addCondition(condition)
+		creature:addCondition(conditionExhaust)
 		SpellAddEvent(castSpell, 4000, creature:getId(), var) 
 	end
 
