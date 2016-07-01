@@ -28,7 +28,7 @@ function onCastSpell(creature, var)
 		end
 	end
 	
-	addEvent(delayedCastSpell, 10000, creature:getId(), var)
+	SpellAddEvent(delayedCastSpell, 10000, creature:getId(), var)
 	
 	return true
 end

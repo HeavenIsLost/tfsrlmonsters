@@ -28,7 +28,7 @@ function onCastSpell(creature, var)
 		creature:addCondition(condition)
 		creature:teleportTo(newPosition, true)
 		creature:changeSpeed(-speed)
-		addEvent(changeSpeeds, 11 * 1000, creature:getId(), var)
+		SpellAddEvent(changeSpeeds, 11 * 1000, creature:getId(), var)
 		
 		if topCreature and topCreature:isPlayer() then
 			topCreature:teleportTo(Position(creaturePosition.x - 3, creaturePosition.y, creaturePosition.z), true)

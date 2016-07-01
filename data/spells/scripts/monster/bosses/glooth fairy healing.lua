@@ -23,7 +23,7 @@ end
 function onCastSpell(creature, var)
 	if (creature:getHealthPercent() < healPercent) and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition)
-		addEvent(heal, 10 * 1000, creature:getId())
+		SpellAddEvent(heal, 10 * 1000, creature:getId())
 	end
 	
 	return true

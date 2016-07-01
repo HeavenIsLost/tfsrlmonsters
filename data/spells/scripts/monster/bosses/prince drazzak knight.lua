@@ -83,7 +83,7 @@ function onCastSpell(creature, var)
 		creature:addCondition(condition)
 		selectVocTarget(creature)
 		creature:say("All KNIGHTS must DIE!", TALKTYPE_ORANGE_1)
-		addEvent(delayedCastSpell, 4000, creature:getId(), var)
+		SpellAddEvent(delayedCastSpell, 4000, creature:getId(), var)
 	end
 	
 	return true

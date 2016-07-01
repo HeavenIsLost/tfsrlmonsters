@@ -62,7 +62,7 @@ end
 function onCastSpell(creature, var)
 	if (creature:getHealthPercent() <= percentToAttack) and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_COMBAT, 88888) then
 		creature:addCondition(condition)
-		addEvent(delayedCastSpell, 5000, creature:getId(), var)
+		SpellAddEvent(delayedCastSpell, 5000, creature:getId(), var)
 		creature:say("Better flee now.", TALKTYPE_ORANGE_1)
 	end
 

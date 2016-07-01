@@ -22,7 +22,7 @@ function onCastSpell(creature, var)
 	if (creature:getHealthPercent() <= percentToHeal) and not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_COMBAT, 88888) then
 		creature:say("Lisa takes a final breath before she's healing up!", TALKTYPE_ORANGE_1)
 		creature:addCondition(condition)
-		addEvent(healLisa, 6 * 1000, creature:getId())
+		SpellAddEvent(healLisa, 6 * 1000, creature:getId())
 	end
 	
 	return true

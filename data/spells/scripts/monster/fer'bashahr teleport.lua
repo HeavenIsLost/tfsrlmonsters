@@ -35,7 +35,7 @@ local function hideTeleport(cid)
 	creaturePos:sendMagicEffect(CONST_ME_TELEPORT)
 	creature:teleportTo(hidePosition)
 	
-	addEvent(backTeleport, 20 * 1000, creature:getId(), creaturePos)
+	SpellAddEvent(backTeleport, 20 * 1000, creature:getId(), creaturePos)
 end
 
 local function firstTeleport(cid)
@@ -62,13 +62,13 @@ function onCastSpell(creature, var)
 		
 		creature:addCondition(condition)
 		
-		addEvent(firstTeleport, 1, creature:getId())
+		SpellAddEvent(firstTeleport, 1, creature:getId())
 		
 		for t = 8, 9.5, 0.5 do
-			addEvent(sendTeleport, t * 1000, creature:getId())
+			SpellAddEvent(sendTeleport, t * 1000, creature:getId())
 		end
 		
-		addEvent(hideTeleport, 10 * 1000, creature:getId())		
+		SpellAddEvent(hideTeleport, 10 * 1000, creature:getId())		
 	end
 	
 	return false

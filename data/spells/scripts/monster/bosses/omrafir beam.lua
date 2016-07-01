@@ -122,7 +122,7 @@ function onCastSpell(creature, var)
 	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:say("OMRAFIR INHALES DEEPLY!", TALKTYPE_ORANGE_2)
 		creature:addCondition(condition)
-		addEvent(castSpell, 4000, creature:getId(), var) 
+		SpellAddEvent(castSpell, 4000, creature:getId(), var) 
 	end
 
 	return true

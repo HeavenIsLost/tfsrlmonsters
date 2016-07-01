@@ -12,6 +12,6 @@ local function summon(cid)
 end
 	
 function onCastSpell(creature, var)
-	addEvent(summon, 14000, creature:getId())
+	SpellAddEvent(summon, 14000, creature:getId())
 	return true
 end
