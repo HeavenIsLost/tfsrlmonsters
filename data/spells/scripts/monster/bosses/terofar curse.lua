@@ -12,13 +12,13 @@ condition2:setParameter(CONDITION_PARAM_TICKS, 15 * 60 * 1000)
 
 local doCombatFunc = MonsterSpellCreateCursedCombatList(damage, damage, damage, 37, 37, 1.2, 4000, configureCombat)
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	if not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_COMBAT, 88888) then
 		creature:addCondition(condition2)
 		creature:say("Terofar cast a greater death curse on you!", TALKTYPE_ORANGE_1)
-		
-		return doCombatFunc():execute(creature, var)
+
+		return doCombatFunc():execute(creature, variant)
 	end
-	
+
 	return false
 end

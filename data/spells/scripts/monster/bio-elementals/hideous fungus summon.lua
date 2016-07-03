@@ -7,19 +7,19 @@ combat:setArea(area)
 
 local maxSummons = 2
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	local summonCount = #creature:getSummons()
 	if summonCount < 2 then
 		for i = 1, maxSummons - summonCount do
 			local mid = Game.createMonster("Humorless Fungus", creature:getPosition())
-			
+
 			if mid then
 				mid:setMaster(creature)
 			end
 		end
-		
-		return combat:execute(creature, var)
+
+		return combat:execute(creature, variant)
 	end
-	
+
 	return true
 end

@@ -9,6 +9,6 @@ condition:setFormula(-0.40, 0, -0.55, 0)
 local area = createCombatArea(AREA_SQUARE1X1)
 combat:setArea(area)
 
-function onCastSpell(creature, var)
-	return combat:execute(creature, var)
+function onCastSpell(creature, variant)
+	return combat:execute(creature, variant)
 end

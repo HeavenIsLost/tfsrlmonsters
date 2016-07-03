@@ -19,13 +19,13 @@ condition:setParameter(CONDITION_PARAM_TICKS, 6000)
 local function configureCombat(combat, percent)
 	combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
 	combat:setArea(area)
-	
+
 	condition:setParameter(CONDITION_PARAM_STAT_MAGICPOINTSPERCENT, percent)
 	combat:setCondition(condition)
 end
 
 local doCombatFunc = MonsterSpellCreateSkillReducerCombatList(minPercent, maxPercent, configureCombat)
 
-function onCastSpell(creature, var)
-	return doCombatFunc():execute(creature, var)
+function onCastSpell(creature, variant)
+	return doCombatFunc():execute(creature, variant)
 end

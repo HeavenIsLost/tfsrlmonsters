@@ -41,15 +41,15 @@ local area = createCombatArea({
 })
 
 combat:setArea(area)
-	
+
 local maxSummons = 25
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	creature:say("RISE MY SERVANTS! RISE!!", TALKTYPE_ORANGE_2)
-	
+
 	local summonCount = #creature:getSummons()
 	local creaturePos = creature:getPosition()
-	
+
 	if summonCount < 25 then
 		for i = 1, maxSummons do
 			local mid = Game.createMonster(summons[math.random(#summons)].name, Position(creaturePos.x + math.random(-3, 3), creaturePos.y + math.random(-3, 3), creaturePos.z))
@@ -58,6 +58,6 @@ function onCastSpell(creature, var)
 			end
 		end
 	end
-	
-	return combat:execute(creature, var)
+
+	return combat:execute(creature, variant)
 end

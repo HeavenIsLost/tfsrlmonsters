@@ -26,6 +26,6 @@ end
 
 local doCombatFunc = MonsterSpellCreateCursedCombatList(minDamage, maxDamage, increaseDamage, 34, 34, 1.2, 4000, configureCombat)
 
-function onCastSpell(creature, var)
-	return doCombatFunc():execute(creature, var)
+function onCastSpell(creature, variant)
+	return doCombatFunc():execute(creature, variant)
 end

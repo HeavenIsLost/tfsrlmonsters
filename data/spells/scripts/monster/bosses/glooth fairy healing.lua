@@ -13,18 +13,18 @@ local function heal(cid)
 	if not creature then
 		return
 	end
-	
+
 	creature:addHealth(math.random(minHeal, maxHeal))
 	creature:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-	
+
 	return true
 end
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	if (creature:getHealthPercent() < healPercent) and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition)
 		addEvent(heal, 10 * 1000, creature:getId())
 	end
-	
+
 	return true
 end

@@ -7,7 +7,7 @@ combat:setArea(area)
 
 local maxSummons = 5
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	local summonCount = #creature:getSummons()
 	if summonCount < 5 then
 		for i = 1, maxSummons - summonCount do
@@ -18,9 +18,9 @@ function onCastSpell(creature, var)
 				mid:say("FREEZE! LET ME SEE YOUR HANDS UP!", TALKTYPE_ORANGE_2)
 			end
 		end
-		
-		return combat:execute(creature, var)
+
+		return combat:execute(creature, variant)
 	end
-	
+
 	return true
 end

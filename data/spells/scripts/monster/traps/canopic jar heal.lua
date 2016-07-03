@@ -27,7 +27,7 @@ function onTargetCreature(creature, target)
 	if not MonsterSpellIsFriendMonster(target) then
 		return true
 	end
-	
+
 	local hp = creature:getHealthPercent()
 
 	if hp > 75 then
@@ -45,6 +45,6 @@ end
 
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
-function onCastSpell(creature, var)
-	return combat:execute(creature, var)
+function onCastSpell(creature, variant)
+	return combat:execute(creature, variant)
 end

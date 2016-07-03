@@ -26,7 +26,7 @@ local function configureCombat(combat, percent)
 	combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SMALLPLANTS)
 	combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLEARTH)
 	combat:setArea(area)
-	
+
 	conditionKnight:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, percent)
 	conditionKnight:setParameter(CONDITION_PARAM_SKILL_FISTPERCENT, percent)
 	conditionKnight:setParameter(CONDITION_PARAM_SKILL_SHIELDPERCENT, percent)
@@ -35,7 +35,7 @@ local function configureCombat(combat, percent)
 
 	conditionPaladin:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, percent)
 	conditionPaladin:setParameter(CONDITION_PARAM_SKILL_SHIELDPERCENT, percent)
-	
+
 	function onTargetTile(attacker, pos)
 		local tile = pos:getTile()
 		if not tile then
@@ -43,7 +43,7 @@ local function configureCombat(combat, percent)
 		end
 
 		local creatures = tile:getCreatures()
-		
+
 		if(creatures) then
 			for _, creature in ipairs(creatures) do
 				if (creature ~= attacker) then
@@ -61,7 +61,7 @@ local function configureCombat(combat, percent)
 				end
 			end
 		end
-		
+
 		return true
 	end
 
@@ -70,6 +70,6 @@ end
 
 local doCombatFunc = MonsterSpellCreateSkillReducerCombatList(minPercent, maxPercent, configureCombat)
 
-function onCastSpell(creature, var)
-	return doCombatFunc():execute(creature, var)
+function onCastSpell(creature, variant)
+	return doCombatFunc():execute(creature, variant)
 end

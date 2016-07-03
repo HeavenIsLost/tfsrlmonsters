@@ -4,7 +4,7 @@ local maxPercent = 30
 local condition = Condition(CONDITION_ATTRIBUTES)
 condition:setParameter(CONDITION_PARAM_TICKS, 15000)
 
-local function configureCombat(combat, percent)	
+local function configureCombat(combat, percent)
 	combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_TELEPORT)
 	combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SUDDENDEATH)
 
@@ -16,6 +16,6 @@ end
 
 local doCombatFunc = MonsterSpellCreateSkillReducerCombatList(minPercent, maxPercent, configureCombat)
 
-function onCastSpell(creature, var)
-	return doCombatFunc():execute(creature, var)
+function onCastSpell(creature, variant)
+	return doCombatFunc():execute(creature, variant)
 end

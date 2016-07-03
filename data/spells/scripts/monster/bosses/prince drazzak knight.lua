@@ -31,18 +31,18 @@ function onTargetTile(boss, pos)
 			end
 		end
 	end
-	
+
 	return true
 end
 
 combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
-local function delayedCastSpell(cid, var)
-	local creature = Creature(cid) 
-	if not creature then 
-		return 
+local function delayedCastSpell(cid, variant)
+	local creature = Creature(cid)
+	if not creature then
+		return
 	end
-	
+
 	creature:say("DIE!", TALKTYPE_ORANGE_1)
 	return combat:execute(creature, Variant(creature:getPosition()))
 end
@@ -51,10 +51,10 @@ end
 local function selectVocTarget(boss)
 	local bossPosition = boss:getPosition()
 	local creatures = boss:getTargetList()
-	
+
 	local lowestDist = 1000
 	local lowestDistPlayer
-	
+
 	if creatures then
 		for _, creature in ipairs(creatures) do
 			local player = creature:getPlayer()
@@ -68,7 +68,7 @@ local function selectVocTarget(boss)
 			end
 		end
 	end
-	
+
 	if lowestDistPlayer then
 		boss:setTarget(lowestDistPlayer)
 		boss:setFollowCreature(lowestDistPlayer)
@@ -78,13 +78,13 @@ local function selectVocTarget(boss)
 	end
 end
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	if(not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_COMBAT, 88888)) then
 		creature:addCondition(condition)
 		selectVocTarget(creature)
 		creature:say("All KNIGHTS must DIE!", TALKTYPE_ORANGE_1)
-		addEvent(delayedCastSpell, 4000, creature:getId(), var)
+		addEvent(delayedCastSpell, 4000, creature:getId(), variant)
 	end
-	
+
 	return true
 end

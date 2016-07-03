@@ -1,4 +1,4 @@
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	local msg = "<the welter devours his spawn and heals himself>"
 	local summon = creature:getSummons()
 	for i = 1, #summon do
@@ -21,7 +21,7 @@ function onCastSpell(creature, var)
 			creature:addHealth(25000)
 			creature:getPosition():sendMagicEffect(CONST_ME_ENERGYHIT)
 		end
-		
+
 		return true
 	end
 end

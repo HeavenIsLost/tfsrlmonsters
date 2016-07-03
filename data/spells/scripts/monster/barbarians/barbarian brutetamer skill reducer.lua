@@ -17,7 +17,7 @@ end
 
 local getCombatFunc = MonsterSpellCreateSkillReducerCombatList(minPercent, maxPercent, configureCombat)
 
-function onCastSpell(creature, var)
-	return getCombatFunc():execute(creature, var)
+function onCastSpell(creature, variant)
+	return getCombatFunc():execute(creature, variant)
 end
 

@@ -27,36 +27,36 @@ function onTargetTile(demon, pos)
 	end
 
 	local creatures = tile:getCreatures()
-	
+
 	if(creatures) then
 		for _, creature in ipairs(creatures) do
 			if (creature ~= demon) then
-				doTargetCombatHealth(demon, creature, COMBAT_ENERGYDAMAGE, -minDamage, -maxDamage, CONST_ME_NONE)	
+				doTargetCombatHealth(demon, creature, COMBAT_ENERGYDAMAGE, -minDamage, -maxDamage, CONST_ME_NONE)
 			end
 		end
 	end
- 
+
 	return true
 end
 
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_PURPLEENERGY)
 combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
-local function delayedCastSpell(cid, var)
-	local creature = Creature(cid) 
-	
-	if not creature then 
+local function delayedCastSpell(cid, variant)
+	local creature = Creature(cid)
+
+	if not creature then
 		return
 	end
-	
+
 	creature:say("Gaz'haragoth calls down: DEATH AND DOOM!", TALKTYPE_ORANGE_2)
-	
+
 	return combat:execute(creature, Variant(creature:getPosition()))
 end
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	creature:say("Gaz'haragoth begins to channel DEATH AND DOOM into the area! RUN!", TALKTYPE_ORANGE_2)
-	addEvent(delayedCastSpell, 5000, creature:getId(), var)
+	addEvent(delayedCastSpell, 5000, creature:getId(), variant)
 
 	return true
 end

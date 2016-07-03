@@ -9,12 +9,12 @@ local fires = {
 	1500,
 }
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	if (creature:getHealthPercent() < 99.99) then
 		local creaturePos = creature:getPosition()
-		
+
 		local tile = Tile(creaturePos)
-		if not tile then 
+		if not tile then
 			return true
 		end
 
@@ -27,6 +27,6 @@ function onCastSpell(creature, var)
 			end
 		end
 	end
-	
+
 	return true
 end

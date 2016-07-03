@@ -8,6 +8,6 @@ condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 condition:addDamage(50, 9000, -10)
 combat:setCondition(condition)
 
-function onCastSpell(creature, var)
-	return combat:execute(creature, var)
+function onCastSpell(creature, variant)
+	return combat:execute(creature, variant)
 end
