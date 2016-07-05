@@ -3,7 +3,7 @@ combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYAREA)
 
 local condition = Condition(CONDITION_ENERGY)
-condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+condition:setParameter(CONDITION_PARAM_DELAYED, true)
 condition:addDamage(36, 10000, -25)
 combat:setCondition(condition)
 

@@ -1,7 +1,7 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HEALING)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
-combat:setParameter(COMBAT_PARAM_AGGRESSIVE, 0)
+combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 
 function onCastSpell(creature, variant)
 	creature:say("THE POWER OF HIS INTERNAL FIRE RENEWS OMRAFIR!", TALKTYPE_ORANGE_2)

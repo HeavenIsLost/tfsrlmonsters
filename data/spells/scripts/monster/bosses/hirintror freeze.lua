@@ -2,7 +2,7 @@ local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ICETORNADO)
 
 local condition = Condition(CONDITION_FREEZING)
-condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+condition:setParameter(CONDITION_PARAM_DELAYED, true)
 condition:addDamage(25, 8000, -8)
 combat:setCondition(condition)
 

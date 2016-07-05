@@ -1,6 +1,6 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYHIT)
-combat:setParameter(COMBAT_PARAM_AGGRESSIVE, 0)
+combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 
 local area = createCombatArea(AREA_SQUARE1X1)
 combat:setArea(area)
