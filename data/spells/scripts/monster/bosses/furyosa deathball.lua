@@ -20,11 +20,11 @@ local area = createCombatArea({
 
 combat:setArea(area)
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	if (creature:getHealth() < (creature:getMaxHealth() * 0.4)) then
 		creature:say("Back in black!", TALKTYPE_ORANGE_1)
-		return combat:execute(creature, var)
+		return combat:execute(creature, variant)
 	end
-	
+
 	return true
 end

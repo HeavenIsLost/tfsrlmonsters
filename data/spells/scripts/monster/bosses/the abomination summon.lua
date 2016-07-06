@@ -7,19 +7,19 @@ combat:setArea(area)
 
 local maxSummons = 10
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	local summonCount = #creature:getSummons()
 	if summonCount < 10 then
 		for i = 1, maxSummons - summonCount do
 			local mid = Game.createMonster("Demon Skeleton", Position(creature:getPosition(). x + math.random(-2, 2), creature:getPosition().y + math.random(-2, 2), creature:getPosition().z))
-    			if mid then
+				if mid then
 				mid:setMaster(creature)
 			end
-			
+
 		end
-		
-		return combat:execute(creature, var)
+
+		return combat:execute(creature, variant)
 	end
-	
+
 	return true
 end

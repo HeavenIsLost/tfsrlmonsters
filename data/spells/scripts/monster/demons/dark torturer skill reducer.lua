@@ -18,7 +18,7 @@ local area = createCombatArea({
 	{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0}
 })
-	
+
 local condition = Condition(CONDITION_ATTRIBUTES)
 condition:setParameter(CONDITION_PARAM_TICKS, 4000)
 
@@ -32,6 +32,6 @@ end
 
 local doCombatFunc = MonsterSpellCreateSkillReducerCombatList(minPercent, maxPercent, configureCombat)
 
-function onCastSpell(creature, var)
-	return doCombatFunc():execute(creature, var)
+function onCastSpell(creature, variant)
+	return doCombatFunc():execute(creature, variant)
 end

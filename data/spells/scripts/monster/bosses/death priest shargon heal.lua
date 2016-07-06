@@ -7,20 +7,20 @@ combat:setArea(area)
 
 local healValue = 65000
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	local spectators = Game.getSpectators(creature:getPosition(), false, false, 10, 10, 10, 10)
-	
+
 	for _, spectator in ipairs(spectators) do
 		if spectator:isMonster() and (spectator:getName() == "Necromantic Energy") then
 			spectator:getPosition():sendMagicEffect(CONST_ME_POFF)
 			spectator:remove()
-			
+
 			creature:say("Shargon absorbs necromantic energy to regenerate!", TALKTYPE_ORANGE_1)
 			creature:addHealth(healValue)
-			
-			return combat:execute(creature, var)
+
+			return combat:execute(creature, variant)
 		end
 	end
-	
+
 	return false
 end

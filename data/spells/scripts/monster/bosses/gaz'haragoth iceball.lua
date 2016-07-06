@@ -20,7 +20,7 @@ local area = createCombatArea({
 
 combat:setArea(area)
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	creature:say("Chill out!", TALKTYPE_ORANGE_1)
-	return combat:execute(creature, var)
+	return combat:execute(creature, variant)
 end

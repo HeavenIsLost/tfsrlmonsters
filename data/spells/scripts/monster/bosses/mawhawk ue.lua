@@ -28,13 +28,13 @@ local percentToAttack = 10
 
 function onTargetTile(creature, pos)
 	local tile = pos:getTile()
-	
+
 	local creatures = nil
-	
+
 	if tile then
 		creatures = tile:getCreatures()
 	end
-	
+
 	if creatures then
 		for _, target in ipairs(creatures) do
 			if creature ~= target then
@@ -48,21 +48,21 @@ end
 
 combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
-local function delayedCastSpell(cid, var)
-	local creature = Creature(cid) 
-	if not creature then 
-		return 
+local function delayedCastSpell(cid, variant)
+	local creature = Creature(cid)
+	if not creature then
+		return
 	end
-	
+
 	return combat:execute(creature, Variant(creature:getPosition()))
 end
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	if (creature:getHealthPercent() <= percentToAttack) and not creature:getCondition(CONDITION_EXHAUST_COMBAT, CONDITIONID_DEFAULT, DEFAULT_CONDITION_COMBAT_SUB_ID) then
 		creature:addCondition(conditionExhaust)
-		SpellAddEvent(delayedCastSpell, 5000, creature:getId(), var)
+		SpellAddEvent(delayedCastSpell, 5000, creature:getId(), variant)
 		creature:say("Better flee now.", TALKTYPE_ORANGE_1)
 	end
 
-    return true
+	return true
 end

@@ -22,12 +22,12 @@ for i = 25, 30 do
 	condition:addDamage(10, 4000, -i + 2)
 	condition:addDamage(10, 4000, -i + 3)
 	condition:addDamage(10, 4000, -i + 4)
-	
+
 	combat[i]:setArea(area)
 	combat[i]:setCondition(condition)
 end
 
-function onCastSpell(creature, var)
-	return combat[math.random(25, 30)]:execute(creature, var)
+function onCastSpell(creature, variant)
+	return combat[math.random(25, 30)]:execute(creature, variant)
 end
 

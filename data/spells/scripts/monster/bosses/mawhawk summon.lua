@@ -7,10 +7,10 @@ combat:setArea(area)
 
 local maxSummons = 4
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	local summons = creature:getSummons()
 	local summonCount = #summons
-	
+
 	if summonCount < maxSummons then
 		creature:say("Watch my maws!", TALKTYPE_ORANGE_1)
 		for i = 1, maxSummons - summonCount do
@@ -18,12 +18,12 @@ function onCastSpell(creature, var)
 			if not mid then
 				return
 			end
-			
+
 			mid:setMaster(creature)
 		end
-		
-		return combat:execute(creature, var)
+
+		return combat:execute(creature, variant)
 	end
-	
+
 	return true
 end

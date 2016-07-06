@@ -6,7 +6,7 @@ condition:setParameter(CONDITION_PARAM_TICKS, 15000)
 
 local area = createCombatArea(AREA_SQUARE1X1)
 
-local function configureCombat(combat, percent)	
+local function configureCombat(combat, percent)
 	combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITAREA)
 	combat:setArea(area)
 
@@ -19,6 +19,6 @@ end
 
 local doCombatFunc = MonsterSpellCreateSkillReducerCombatList(minPercent, maxPercent, configureCombat)
 
-function onCastSpell(creature, var)
-	return doCombatFunc():execute(creature, var)
+function onCastSpell(creature, variant)
+	return doCombatFunc():execute(creature, variant)
 end

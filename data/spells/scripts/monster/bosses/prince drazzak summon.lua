@@ -11,12 +11,12 @@ local summonsPositions = {
 	Position(33532, 32337, 12),
 }
 
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	creature:say("CRUSH THEM ALL!", TALKTYPE_ORANGE_2)
-	
+
 	for _, position in ipairs(summonsPositions) do
 		Game.createMonster("Demon", position, false, true)
 	end
-	
-	return combat:execute(creature, var)
+
+	return combat:execute(creature, variant)
 end

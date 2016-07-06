@@ -1,4 +1,4 @@
-function onCastSpell(creature, var)
+function onCastSpell(creature, variant)
 	local summonCount = #creature:getSummons()
 	if summonCount < 2 then
 		local mon = Game.createMonster("Lesser Death Minion", creature:getPosition(), true, true)
@@ -7,6 +7,6 @@ function onCastSpell(creature, var)
 			return true
 		end
 	end
-	
+
 	return false
 end
