@@ -16,7 +16,7 @@ for i = 25, 30 do
 	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_GREEN_RINGS)
 
 	local condition = Condition(CONDITION_POISON)
-	condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+	condition:setParameter(CONDITION_PARAM_DELAYED, true)
 	condition:addDamage(10, 4000, -i)
 	condition:addDamage(10, 4000, -i + 1)
 	condition:addDamage(10, 4000, -i + 2)

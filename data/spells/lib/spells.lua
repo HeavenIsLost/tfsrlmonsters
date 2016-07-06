@@ -230,16 +230,16 @@ function getCreaturesInAreaLess3(centerPos, playersOnly, width, height, fromZ, t
 	if fromZ == nil then
 		fromZ = centerPos.z
 	end
-	
+
 	if toZ == nil then
 		toZ = centerPos.z
-	end	
-	
+	end
+
 	local spectators = {}
-	
+
 	width = width - 1
 	height = height - 1
-	
+
 	for x = centerPos.x, centerPos.x + width do
 		for y = centerPos.y, centerPos.y + height do
 			for z = fromZ, toZ do
@@ -260,7 +260,7 @@ function getCreaturesInAreaLess3(centerPos, playersOnly, width, height, fromZ, t
 			end
 		end
 	end
-	
+
 	return spectators
 end
 
@@ -268,25 +268,25 @@ function getCreaturesInArea(centerPos, playersOnly, width, height, fromZ, toZ)
 	if fromZ == nil then
 		fromZ = centerPos.z
 	end
-	
+
 	if toZ == nil then
 		toZ = centerPos.z
 	end
-	
+
 	if (width < 3) or (height < 3) then
 		return getCreaturesInAreaLess3(centerPos, playersOnly, width, height, fromZ, toZ)
 	end
-	
+
 	local tmpPos = Position(centerPos.x, centerPos.y, centerPos.z)
-	
+
 	tmpPos.x = tmpPos.x + 1
 	tmpPos.y = tmpPos.y + 1
-	
+
 	width = width - 2
 	height = height - 2
-	
+
 	local spectators = {}
-	
+
 	for z = fromZ, toZ do
 		tmpPos.z = z
 		local result = Game.getSpectators(tmpPos, false, playersOnly, 1, width, 1, height)
@@ -294,20 +294,20 @@ function getCreaturesInArea(centerPos, playersOnly, width, height, fromZ, toZ)
 			table.insert(spectators, creature)
 		end
 	end
-	
+
 	return spectators
 end
 
 function buildRectArea(fromPos, toPos)
 	local area = {}
-	
+
 	area.position = fromPos
 	area.width = toPos.x - fromPos.x
 	area.height = toPos.y - fromPos.y
-	
+
 	area.fromZ = fromPos.z
 	area.toZ = toPos.z
-	
+
 	return area
 end
 
@@ -325,7 +325,7 @@ end
 --it only count friend monsters(that are monsters and are not a player summon)
 function MonsterSpellGetSummonsInArea(master, checkIsMaster, checkName, checkWithoutMaster, minRangeX, maxRangeX, minRangeY, maxRangeY)
 	local checkNameType = type(checkName)
-	
+
 	if checkNameType == "string" then
 		if checkName ~= "" then
 			checkName = {checkName}
@@ -335,31 +335,31 @@ function MonsterSpellGetSummonsInArea(master, checkIsMaster, checkName, checkWit
 	elseif not checkNameType == "table" then
 		return
 	end
-	
+
 	local spectators = Game.getSpectators(master:getPosition(), false, false, minRangeX, maxRangeX, minRangeY, maxRangeY)
-	
+
 	local ret = {}
-	
+
 	for _, spectator in ipairs(spectators) do
 		if MonsterSpellIsFriendMonster(spectator) and (not checkIsMaster or (spectator:getMaster() == master)) and (#checkName == 0 or isInArray(checkName, spectator:getName())) and (not checkWithoutMaster or not spectator:getMaster()) then
 			table.insert(ret, spectator)
 		end
 	end
-	
+
 	return ret
 end
 
 function MonsterSpellCreateSkillReducerCombatList(minPercent, maxPercent, callback)
 	local ret = {}
-	
+
 	for percent = minPercent, maxPercent do
 		local combat = Combat()
-		
+
 		callback(combat, percent)
 
 		ret[percent] = combat
 	end
-	
+
 	return function()
 		local rndValue = math.random(minPercent, maxPercent)
 		print("MonsterSpellCreateSkillReducerCombatList percent: " .. rndValue)
@@ -369,28 +369,28 @@ end
 
 function MonsterSpellCreateCursedCombatList(minDamage, maxDamage, increaseValue, minCount, maxCount, multiplier, delay, callback)
 	local ret = {}
-	
+
 	for damage = minDamage, maxDamage, increaseValue do
 		for count = minCount, maxCount do
 			local combat = Combat()
-			
+
 			callback(combat, damage)
-			
+
 			local condition = Condition(CONDITION_CURSED)
-			condition:setParameter(CONDITION_PARAM_DELAYED, 1)
-			
+			condition:setParameter(CONDITION_PARAM_DELAYED, true)
+
 			local value = damage
 			for _ = 1, count do
 				condition:addDamage(1, delay, -value)
 				value = value * multiplier
 			end
-			
+
 			combat:setCondition(condition)
-			
+
 			table.insert(ret, combat)
 		end
 	end
-	
+
 	return function()
 		return ret[math.random(#ret)]
 	end
@@ -411,7 +411,7 @@ function SpellAddEvent(...)
 	if eventId then
 		table.insert(SPELLS_GLOBAL_ADD_EVENTS_LIST, eventId)
 	end
-	
+
 	return eventId
 end
 
@@ -424,3 +424,5 @@ SPELL_VOCATION_MAGE = {1, 2, 5, 6}
 
 DEFAULT_CONDITION_COMBAT_SUB_ID = 8888888
 DEFAULT_CONDITION_HEAL_SUB_ID = 8888889
+
+
